@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Zizhi</title>
+    <link rel="shortcut icon" href="../../Images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="base">
+        <div class="navBar">
+            <div class="left">
+                <button type="button" id="btnHome"></button>
+            </div>
+            <div class="center">
+                <label>Login App Escolar</label>             
+            </div>
+            <div class="rigth">
+                <button type="button" id="btnNewUser"></button>
+            </div>            
+        </div>
+        <div class="pageContent">
+            <div class="cardLogin">
+                <form id="formLogin">
+                    <label class="text">Ingresar</label>
+                    <input id="userLogin" type="text" placeholder="Usuario" autocomplete="email" required>
+                    <input id="passLogin" type="password" placeholder="Contraseña" autocomplete="off" required>
+                    <button type="submit" class="btnForm" id="btnLogin">Login</button>
+                    <button type="button" class="btnReturn"></button>
+                </form>
+                <form id="formCreate">                    
+                    <label class="text">Registrarse</label>              
+                    <input id="nameCreate" type="text" placeholder="Nombre" autocomplete="off" required>
+                    <input id="userCreate" type="text" placeholder="Usuario" autocomplete="off" required>
+                    <input id="passCreate" type="password" placeholder="Contraseña" autocomplete="off" required>                    
+                    <input id="confirmCreate" type="password" placeholder="Confirmar" autocomplete="off" required>
+                    <button type="submit" class="btnForm" id="btnCreate">Login</button>                    
+                    <button type="button" class="btnReturn"></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="contactUs">
+                <div class="networks">
+                    <label>Contacto</label>
+                    <button type="button" class="facebook"></button>
+                    <button type="button" class="instagram"></button>
+                    <button type="button" class="whatsApp"></button>
+                </div>
+            </div>
+            <div class="copyRight">
+                &reg;Miguel Areiza 2022 all rights reserved
+            </div>
+            <div class="handcrafted">
+                Handcrafted with love ❤️
+            </div>
+        </div>
+    </div>
+    <div id="notifications">
+
+    </div>
+    <!-- Generales -->
+    <script src="../../scripts/General.js"></script>
+    <link rel="stylesheet" href="../../styles/General.css">
+    
+    <!-- Propios -->
+    <link rel="stylesheet" href="../../styles/login.css">
+    <script src="../../scripts/login.js"></script>
+</body>
+</html>

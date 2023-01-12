@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Zizhi</title>
+    <link rel="shortcut icon" href="../../Images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="base">
+        <div class="navBar">
+            <div class="left">
+                <button type="button" id="btnLogOut"></button>
+            </div>
+            <div class="center">
+                <label id="nameUser"></label>             
+            </div>
+            <div class="rigth">
+                <button type="button" id="btnSettings"></button>
+                <div class="menu" id="menu">
+                    <button type="button" id="btnAvatares"></button>
+                    <button type="button" id="btnInsignias"></button>
+                    <button type="button" id="btnPoderes"></button>
+                    <button type="button" id="btnTienda"></button>
+                </div>
+            </div>
+        </div>
+        <div class="pageContent">
+            <div class="cardButton">
+                <label class="titulo">Tu equipo</label>
+                <button id="btnEquipo"></button>
+            </div>
+            <div class="cardButton">
+                <label class="titulo">Tus metas</label>
+                <button id="btnLista"></button>
+            </div>
+            <div class="cardButton">
+                <label class="titulo">Misiones</label>
+                <button id="btnMisiones"></button>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="contactUs">
+                <div class="networks">
+                    <label>Contacto</label>
+                    <button type="button" class="facebook"></button>
+                    <button type="button" class="instagram"></button>
+                    <button type="button" class="whatsApp"></button>
+                </div>
+            </div>
+            <div class="copyRight">
+                &reg;Miguel Areiza 2022 all rights reserved
+            </div>
+            <div class="handcrafted">
+                Handcrafted with love ❤️
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <div class="section" id="sectionAvatares">
+            <div class="sectionHeader">
+                <label class="sectionTitle">Configuración avatares</label>
+                <button type="button" class="headerButton" id="btnClose"></button>
+            </div>
+            <form class="sectionForm" id="formAvatares">
+                <div class="fullField">
+                    <label class="formTitle" for="StrName">Personaje</label>
+                    <input class="formInput" type="text" id="StrName" placeholder="Nombre" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntPoints">Puntos</label>
+                    <input class="formInput" type="number" id="IntPoints" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntQuality">Ins. Calidad</label>
+                    <input class="formInput" type="number" id="IntQuality" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntTime">Ins. Tiempo</label>
+                    <input class="formInput" type="number" id="IntTime" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntTeam">Ins. Equipo</label>
+                    <input class="formInput" type="number" id="IntTeam" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <button type="submit" class="formButton" id="btnSave"></button>
+            </form>
+            <div class="grid" id="gridAvatares"></div>
+        </div>
+        <div class="section" id="sectionPoderes">
+            <div class="sectionHeader">
+                <label class="sectionTitle">Configuración poderes</label>
+                <button type="button" class="headerButton" id="btnClose"></button>
+            </div>
+            <form class="sectionForm" id="formPoderes">
+                <div class="fullField">
+                    <label class="formTitle" for="StrName">Poder</label>
+                    <input class="formInput" type="text" id="StrName" placeholder="Nombre" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntPoints">Puntos</label>
+                    <input class="formInput" type="number" id="IntPoints" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntQuality">Ins. Calidad</label>
+                    <input class="formInput" type="number" id="IntQuality" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntTime">Ins. Tiempo</label>
+                    <input class="formInput" type="number" id="IntTime" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntTeam">Ins. Equipo</label>
+                    <input class="formInput" type="number" id="IntTeam" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <button type="submit" class="formButton" id="btnSave"></button>
+            </form>
+            <div class="grid" id="gridPoderes"></div>
+        </div>
+    </div>
+    <div class="personajes">
+        <button id="btnAtras"></button>
+        <label class="text">Es hora de elegir tu personaje</label>
+        <div id="avatares">
+            
+        </div>
+    </div>
+    <div class="insignias">
+        <button id="btnAtras"></button>
+        <label class="text">Es hora de ver tu progreso</label>
+        <div id="insignias">
+            <div class="insCalidad" >
+                <div>
+                    <label class="cantidad">0</label>
+                    <label class="titulo">Insignia de la calidad</label>
+                </div>
+                <img id="insCalidad" src="../../Images/Insignias/InsigniaCalidad.png" alt="insignia de la calidad">
+            </div>
+            <div class="insTiempo" >
+                <div>
+                    <label class="cantidad">0</label>
+                    <label class="titulo">Insignia del tiempo</label>
+                </div>
+                <img id="insTiempo" src="../../Images/Insignias/InsigniaTiempo.png" alt="insignia del tiempo">
+            </div>
+            <div class="insEquipo" >
+                <div>
+                    <label class="cantidad">0</label>
+                    <label class="titulo">Insignia del trabajo en equipo</label>
+                </div>
+                <img id="insEquipo" src="../../Images/Insignias/InsigniaEquipo.png" alt="insignia del trabajo en equipo">
+            </div>
+        </div>
+    </div>
+    <div class="poderes">
+        <button id="btnAtras"></button>
+        <label class="text">Es hora de ver que poderes has desbloqueado</label>
+        <div id="poderes">
+            
+        </div>
+    </div>
+    <div class="tienda">
+        <button id="btnAtras"></button>
+        <label class="text">Es hora de ver que dulces puedes canjear</label>
+        <div id="tienda">
+            
+        </div>
+    </div>
+    <div class="telon"></div>
+    <div id="notifications">
+
+    </div>
+    <!-- Generales -->
+    <link rel="stylesheet" href="../../styles/General.css">
+    <script src="../../scripts/General.js"></script>
+    
+    <!-- Propios -->
+    <link rel="stylesheet" href="../../styles/portal.css">
+    <script src="../../scripts/portal.js"></script>
+
+    <!-- Kendo grid -->
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2022.3.1109/styles/kendo.default-ocean-blue.min.css">
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jquery.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/jszip.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/kendo.all.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2022.3.1109/js/messages/kendo.messages.es-ES.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* Estilos del navbar */
+.navBar > .rigth > #btnLogin{
+    background-image: url('../Images/Botones/Login.png');
+}
+
+/* Estilos dela pagecontent */
+.pageContent > div{
+    width: 70vw;
+    margin: auto;
+    margin-top: 10vh;
+    background: #000;
+    text-align: center;
+    padding: 3vh;
+    border-radius: 5vh;
+    box-shadow: 0 0 10px #333;
+    color: #fff;
+    font-family: 'Merienda One', cursive;
+    text-shadow: 1px 1px 3px #000;
+}
+.pageContent > div > h1{
+    margin-bottom: 4vh;
+    font-size: 7vh;
+}
+.pageContent > div > p{
+    font-size: 3vh;
+}

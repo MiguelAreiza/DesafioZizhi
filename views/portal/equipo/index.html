@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Zizhi</title>
+    <link rel="shortcut icon" href="../../../Images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="base">
+        <div class="navBar">
+            <div class="left">
+                <button type="button" id="btnAtras"></button>
+            </div>
+            <div class="center">
+                <label id="nameUser"></label>
+            </div>
+            <div class="rigth">
+                
+            </div>            
+        </div>
+        <div class="pageContent">
+            <div class="cardTeam">
+                <form id="formTeam">
+                    <label class="title">Información de tu equipo</label>
+                    <input class="formInput" id="teamName" type="text" placeholder="Nombre del equipo" autocomplete="off" required>
+                    <input class="formInput" id="teamMeaning" type="text" placeholder="Significado del nombre" autocomplete="off" required>
+                    <textarea class="formInput" id="teamGoals" placeholder="Metas del equipo" required></textarea>
+                    <button class="formInput" id="btnCreate" type="submit">Crear Grupo</button>
+                </form>
+                <form id="formFriends">
+                    <label class="title" id="nameTeam"></label>
+                    <iframe class="videoTeam"
+                            src="https://www.youtube.com/embed/1v6JZqNSF0o?controls=0&autoplay=0" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                    <div class="usersTeam">
+                        <label class="title">Integrantes</label>
+                        <select class="formInput" id="cboFriend1" required>
+                        </select>
+                        <select class="formInput" id="cboFriend2" required>
+                        </select>
+                        <select class="formInput" id="cboFriend3" required>
+                        </select>
+                        <select class="formInput" id="cboFriend4" required>
+                        </select>
+                    </div>
+                    <div class="readings">
+                        <img src="../../../Images/Lecturas/LecturaCoordinador.png" alt="lectura Coordinador" draggable="false">
+                        <img src="../../../Images/Lecturas/LecturaPortavoz.png" alt="lectura Portavoz" draggable="false">
+                        <img src="../../../Images/Lecturas/LecturaSecretario.png" alt="lectura Secretario" draggable="false">
+                        <img src="../../../Images/Lecturas/LecturaSupervisor.png" alt="lectura Supervisor" draggable="false">
+                    </div>
+                    <div class="rolesTeam">                        
+                        <label class="title">Roles</label>
+                        <select class="formInput" id="cboCoordinador" required>
+                        </select>
+                        <select class="formInput" id="cboPortavoz" required>
+                        </select>
+                        <select class="formInput" id="cboSecretario" required>
+                        </select>
+                        <select class="formInput" id="cboSupervisor" required>
+                        </select>
+                    </div>
+                    <button class="formInput" id="btnConfirm">Confirmar</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="contactUs">
+                <div class="networks">
+                    <label>Contacto</label>
+                    <button type="button" class="facebook"></button>
+                    <button type="button" class="instagram"></button>
+                    <button type="button" class="whatsApp"></button>
+                </div>
+            </div>
+            <div class="copyRight">
+                &reg;Miguel Areiza 2022 all rights reserved
+            </div>
+            <div class="handcrafted">
+                Handcrafted with love ❤️
+            </div>
+        </div>
+    </div>
+    <div id="notifications">
+
+    </div>
+    <!-- Generales -->
+    <script src="../../../scripts/General.js"></script>
+    <link rel="stylesheet" href="../../../styles/General.css">
+    
+    <!-- Propios -->
+    <script src="../../../scripts/equipo.js"></script>
+    <link rel="stylesheet" href="../../../styles/equipo.css">
+</body>
+</html>

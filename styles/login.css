@@ -1,0 +1,111 @@
+*{    
+    font-family: 'Merienda One', cursive;
+}
+/* Estilos del navbar */
+.navBar > .left > #btnHome{
+    background-image: url('../Images/Botones/Home.png');
+}
+.navBar > .center > label{
+    color: #fff;
+    font-family: 'Merienda One', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+}
+.navBar > .rigth > #btnNewUser{
+    background-image: url('../Images/Botones/NewUser.png');
+}
+
+/* Estilos del pagecontent */
+.pageContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardLogin{
+    width: 90vw;
+    height: 50vh;
+    padding: 2vh;
+    border-radius: 5vh;
+    background-image: url('../Images/Fondos/FondoLogin.png');
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cardLogin > form{
+    display: inline; 
+    border-bottom: 3px solid #56ccef;
+    border-radius: 1vh;
+    height: 100%;
+    padding: 0 2vh;
+    contain: content;
+    transition: 1.5s;
+}
+.cardLogin > #formCreate{
+    display: none;
+    height: 0px;
+}
+#passCreate, #confirmCreate{
+    display: inline-block;
+    width: 49%;
+}
+.cardLogin > form > .text{
+    display: block;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 3vh;
+}
+.cardLogin > form > input{
+    background: #0007;
+    display: block;
+    margin: auto;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: .5vh;
+    border-radius: 5vh;
+    border: 2px solid #56ccef;
+    box-shadow: 0 3px 5px #ec34e0;
+    border-top: none;
+    margin-bottom: 3vh;
+    outline: none;
+}
+form > input::placeholder{
+    color: #fff;
+}
+.cardLogin > form > .btnForm{
+    background: #000;
+    display: block;
+    margin: auto;
+    color: #fff;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 1vh 5vh;
+    border-radius: 5vh;
+    border: 2px solid #56ccef;
+    box-shadow: 0 3px 5px #ec34e0;
+    border-top: none;
+    transition: .6s;
+}
+.cardLogin > form > .btnForm:hover{
+    transform: scale(1.1);
+}
+.btnReturn{
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    background-image: url('../Images/Botones/Return.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 25px;
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 15px);
+    transition: .6s;
+}
+.btnReturn:hover{
+    scale: 1.1;
+}

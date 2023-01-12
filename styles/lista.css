@@ -1,0 +1,160 @@
+/* Estilos del navbar */
+.navBar > .left > #btnAtras{
+    background-image: url('../Images/Botones/Atras.png');
+}
+.navBar > .center > #nameUser{
+    color: #fff;
+    font-family: 'Merienda One', cursive;
+    font-size: 1.5rem;
+}
+
+/* Estilos del pagecontent */
+.pageContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.cardGoal{
+    width: 80vw;
+    height: 73vh;
+    background: linear-gradient(45deg, #56ccef, #ec34e0);
+    border-radius: 2vh;
+    border: 2px solid #fff;
+    box-shadow: 0 3px 10px #000;
+    padding: 1vh;
+}
+.cardGoal > .header{
+    height: 12vh;
+}
+.cardGoal > .header > h1{
+    font-size: 1.4rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    font-family: 'Merienda One', cursive;
+}
+.cardGoal > .header > label{
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 1vh;
+    font-family: 'Merienda One', cursive;
+}
+.cardGoal > .input{
+    height: 5vh;
+    margin: 2vh 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.cardGoal > .input > #goal{
+    width: 60%;
+    height: 100%;
+    background: #0009;
+    color: #fff;
+    text-align: center;
+    border-radius: 3vh;    
+    border: 2px solid #56ccef;
+    box-shadow: 0 3px 5px #ec34e0;
+    border-top: none;    
+    font-family: 'Merienda One', cursive;
+}
+.cardGoal > .input > #goal::placeholder{
+    color: #fff;
+}
+.cardGoal > .input > #color{
+    width: 12%;
+    height: 100%;
+    border-radius: 3vh;
+    padding: 0 1%;
+    background: #0009;
+    color: #fff;    
+    border: 2px solid #56ccef;
+    box-shadow: 0 3px 5px #ec34e0;
+    border-top: none;
+    margin: 0 auto 0 5px;
+}
+.cardGoal > .input > button{
+    width: 25%;
+    height: 100%;
+    background: #000c;
+    color: #fff;
+    border-radius: 3vh;    
+    border: 2px solid #56ccef;
+    box-shadow: 0 3px 5px #ec34e0;
+    border-top: none;
+    transition: .6s;
+    font-family: 'Merienda One', cursive;
+}
+.cardGoal > .input  > button:hover{
+    transform: scale(1.1);
+    background: #000;
+}
+.cardGoal > .goalList{
+    height: calc(100% - 21vh);
+    margin-bottom: 2vh;
+}
+.cardGoal > .goalList > h3{
+    height: 5vh;
+    text-align: center;
+    background: #0009;
+    color: #fff;
+    border-radius: 2vh 2vh 0 0;
+    padding: 1vh;
+    font-size: 1.1rem;
+    font-family: 'Merienda One', cursive;
+    text-shadow: 1px 1px 1px #000;
+}
+.cardGoal > .goalList > #goalList{
+    width: 100%;
+    height: calc(100% - 5vh);
+    background: #0007;
+    border-radius: 0 0 2vh 2vh;
+    contain: content;
+    overflow-y: scroll;
+    padding: 1.5vh;
+}
+.cardGoal > .goalList > #goalList::-webkit-scrollbar,
+.cardGoal > .goalList > #goalList::-webkit-scrollbar-track,
+.cardGoal > .goalList > #goalList::-webkit-scrollbar-thumb{
+    background: transparent;
+    width: 0;
+}
+.cardGoal > .goalList > #goalList > .goal{
+    background: #ccc;
+    margin-bottom: 2vh;
+    border-radius: 1vh;
+    padding: 1vh 2vh;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.cardGoal > .goalList > #goalList > .goal > label{
+    font-size: 1rem;
+    width: calc(100% - 24px - 2vh);
+    text-align: justify;
+    margin-right: 2vh;
+    font-family: 'Merienda One', cursive;
+}
+.cardGoal > .goalList > #goalList > .goal > button{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: transparent;
+    background-image: url('../Images/Botones/Eliminar.png');
+    background-size: 100% 100%;
+    border: none;
+    transition: .6s;
+}
+.cardGoal > .goalList > #goalList > .goal > button:hover{
+    transform: scale(1.1);
+    box-shadow: -1px 1px 2px #000;
+}
+.complete{
+    color: #555;
+    text-decoration: line-through;
+}

@@ -122,9 +122,11 @@ function ExecSp(spName) {
 
 function GetUser() {
     
-    this.Id = JSON.parse(sessionStorage.AppUser).Id || '';
+    this.Id = (sessionStorage.AppUser) ? JSON.parse(sessionStorage.AppUser).Id : '';
 
-    this.RoleId = JSON.parse(sessionStorage.AppUser).RoleFk || '';
+    this.RoleId = (sessionStorage.AppUser) ? JSON.parse(sessionStorage.AppUser).RoleFk : '';
+
+    this.TeamId = (sessionStorage.AppUser) ? JSON.parse(sessionStorage.AppUser).TeamFk : '';
 
 }
 

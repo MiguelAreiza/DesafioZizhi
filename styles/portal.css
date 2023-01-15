@@ -13,12 +13,12 @@
 .navBar > .rigth > .menu{
     background: #000;
     width: 12vh;
-    height: 0px;
+    height: 0;
     border-radius: 0 0 2vh 2vh;
     box-shadow: -4px 4px 8px #333;
-    position: absolute;
+    position: fixed;
     top: 12vh;
-    contain: content;
+    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -42,6 +42,9 @@
     background-size: 7vh;
     box-shadow: 1px 1px 3px #777;
 }
+#btnTeams{
+    display: none;
+}
 .navBar > .rigth > #menu > #btnAvatares,
 .navBar > .rigth > #menu > #btnAvatares:hover{
     background-image: url('../Images/IconosMenu/Avatares.png');
@@ -57,6 +60,10 @@
 .navBar > .rigth > #menu > #btnPoderes,
 .navBar > .rigth > #menu > #btnPoderes:hover{
     background-image: url('../Images/IconosMenu/Poderes.png');
+}
+.navBar > .rigth > #menu > #btnTeams,
+.navBar > .rigth > #menu > #btnTeams:hover{
+    background-image: url('../Images/IconosMenu/Teams.png');
 }
 
 /* Estilos del pagecontent */

@@ -46,7 +46,7 @@ if (sessionStorage.AppUser) {
 }
 
 $(document).ready(function() {
-
+    
     $('#btnAtras').click(()=>{
         history.pushState(null, "", "../");
         goLocation.ChangeView('./');

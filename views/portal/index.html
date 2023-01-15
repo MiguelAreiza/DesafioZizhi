@@ -151,6 +151,52 @@
             </form>
             <div class="grid" id="gridProducts"></div>
         </div>
+        <div class="section" id="sectionTeams">
+            <div class="sectionHeader">
+                <label class="sectionTitle">Configuración equipos</label>
+                <button type="button" class="headerButton" id="btnClose"></button>
+            </div>
+            <form class="sectionForm" id="formTeams">
+                <div class="fullField">
+                    <label class="formTitle" for="StrName">Equipo</label>
+                    <input class="formInput" type="text" id="StrName" placeholder="Nombre" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntPoints">Puntos</label>
+                    <input class="formInput" type="number" id="IntPoints" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntQuality">Ins. Calidad</label>
+                    <input class="formInput" type="number" id="IntQuality" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntTime">Ins. Tiempo</label>
+                    <input class="formInput" type="number" id="IntTime" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="IntTeam">Ins. Equipo</label>
+                    <input class="formInput" type="number" id="IntTeam" placeholder="Cantidad necesaria" autocomplete="off" required>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="UserTeam1">Integrante 1</label>
+                    <input class="formInput" type="text" id="UserTeam1" disabled>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="UserTeam2">Integrante 2</label>
+                    <input class="formInput" type="text" id="UserTeam2" disabled>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="UserTeam3">Integrante 3</label>
+                    <input class="formInput" type="text" id="UserTeam3" disabled>
+                </div>
+                <div class="dividedField">
+                    <label class="formTitle" for="UserTeam4">Integrante 4</label>
+                    <input class="formInput" type="text" id="UserTeam4" disabled>
+                </div>
+                <button type="submit" class="formButton" id="btnSave"></button>
+            </form>
+            <div class="grid" id="gridTeams"></div>
+        </div>
     </div>
     <div class="personajes">
         <button id="btnAtras"></button>

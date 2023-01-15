@@ -288,6 +288,30 @@ $(document).ready(()=>{
         
     });
 
+    $('#btnTeams').click(() => {
+        if (getUser.RoleId == 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
+            
+            $('#menu').css('height', '0');
+            $('.telon').show();
+            $('.modal').show();
+            $('#sectionTeams').show();
+            $('#formTeams').hide();
+            $('#gridTeams').show();
+            GridTeams();
+            setTimeout(() => {
+                $('.modal').css('opacity','1');
+            }, 100);
+            $('#sectionTeams #btnClose').click(() => {
+                $('.modal').css('opacity','0');
+                setTimeout(() => {
+                    $('.modal').hide();
+                    $('#sectionTeams').hide();
+                    $('.telon').hide();
+                }, 1000);
+            });
+        }        
+    });
+
     $('#btnEquipo').click(() => {
         history.pushState(null, "", "../portal/equipo/");        
         goLocation.ChangeView('./');
@@ -588,7 +612,7 @@ $(document).ready(()=>{
                             { 
                                 iconClass: "btnEdit",
                                 text: " ",
-                                click: EditPower
+                                click: EditProduct
                             }
                         ], 
                         title: "Acciones"
@@ -626,7 +650,7 @@ $(document).ready(()=>{
             toastr.Error('Contacta tu administrador', 'Error');
         });
 
-        function EditPower(e) {
+        function EditProduct(e) {
             var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
             sessionStorage.setItem('ProductId', dataItem.Id);
             $('#formProducts #StrName').val(dataItem.StrName);
@@ -662,6 +686,137 @@ $(document).ready(()=>{
 
                 toastr.Success('Registro actualizado');
                 GridProducts();
+                
+            }).catch((error) => {
+                toastr.Error('Contacta tu administrador', 'Error');
+            });
+        });
+    }
+    
+    function GridTeams() {
+        ExecSp(`sp_GridTeams`).then((data) => {
+            $("#gridTeams").kendoGrid({
+                language: "es-ES",
+                dataSource: data,
+                autoSync: true,
+                schema: {
+                    model: {
+                        fields: {
+                            Id: { type: "string", editable: false },
+                            StrName: { type: "string", editable: false },
+                            IntPoints: { type: "string", editable: false },
+                            IntQuality: { type: "string", editable: false },
+                            IntTime: { type: "string", editable: false },
+                            IntTeam: { type: "string", editable: false }
+                        },
+                    },
+                },
+                height: 430,
+                scrollable: true,
+                sortable: true,
+                filterable: true,
+                resizable: true,
+                editable: false,
+                toolbar: ["excel", "pdf", "search"],
+                dataBound: function () {
+                    for (var i = 0; i < this.columns.length; i++) {
+                    this.autoFitColumn(i);
+                    }
+                },
+                columns: [
+                    { 
+                        command: [
+                            { 
+                                iconClass: "btnEdit",
+                                text: " ",
+                                click: EditTeam
+                            }
+                        ], 
+                        title: "Acciones"
+                    },
+                    {
+                        field: "StrName",
+                        title: "Producto"
+                    },
+                    {
+                        field: "IntPoints",
+                        title: "Puntos"
+                    },
+                    {
+                        field: "IntQuality",
+                        title: "Ins. Calidad"
+                    },
+                    {
+                        field: "IntTime",
+                        title: "Ins. Tiempo"
+                    },
+                    {
+                        field: "IntTeam",
+                        title: "Ins. Equipo"
+                    }
+                ]
+            });
+
+        }).catch((error) => {
+            toastr.Error('Contacta tu administrador', 'Error');
+        });
+
+        function EditTeam(e) {
+            var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+            sessionStorage.setItem('TeamId', dataItem.Id);
+            $('#formTeams #StrName').val(dataItem.StrName);
+            $('#formTeams #IntPoints').val(dataItem.IntPoints);
+            $('#formTeams #IntQuality').val(dataItem.IntQuality);
+            $('#formTeams #IntTime').val(dataItem.IntTime);
+            $('#formTeams #IntTeam').val(dataItem.IntTeam);
+            $('#formTeams #btnSave').show();
+            $('#formTeams').show();
+            $('#gridTeams').hide();
+            ExecSp(`sp_TeamFriends '${dataItem.Id}';`).then((data) => {                
+                $('#formTeams #UserTeam1').val((data[0])? data[0].StrName : '');
+                $('#formTeams #UserTeam2').val((data[1])? data[1].StrName : '');
+                $('#formTeams #UserTeam3').val((data[2])? data[2].StrName : '');
+                $('#formTeams #UserTeam4').val((data[3])? data[3].StrName : '');
+            }).catch((error) => {
+                toastr.Error('Contacta tu administrador', 'Error');
+            });
+        }
+
+        $('#formTeams').submit((e) => {
+            e.preventDefault();
+            
+            let Name = e.target[0].value;
+            let Points = e.target[1].value;
+            let Quality = e.target[2].value;
+            let Time = e.target[3].value;
+            let Team = e.target[4].value;
+
+            ExecSp(`sp_UpdateTeam '${sessionStorage.TeamId}', '${Name}',${Points},${Quality},${Time},${Team};`).then((data) => {
+                if (data[0].rpta) {
+                    if (data[0].rpta == '-2') {                        
+                        toastr.Warning('Ya existe un equipo con este nombre');
+                        return
+                    }
+                    throw 'bad request';
+                }
+                sessionStorage.removeItem('TeamId');
+
+                $('#formTeams #btnSave').hide();
+                $('#formTeams').hide();
+                $('#gridTeams').show();
+
+                $('#formTeams #StrName').val('');
+                $('#formTeams #IntPoints').val('');
+                $('#formTeams #IntQuality').val('');
+                $('#formTeams #IntTime').val('');
+                $('#formTeams #IntTeam').val('');
+                $('#formTeams #UserTeam1').val('');
+                $('#formTeams #UserTeam2').val('');
+                $('#formTeams #UserTeam3').val('');
+                $('#formTeams #UserTeam4').val('');
+            
+                toastr.Success('Registro actualizado');
+                GridTeams();
                 
             }).catch((error) => {
                 toastr.Error('Contacta tu administrador', 'Error');

@@ -5,7 +5,7 @@
 
 /* Estilos dela pagecontent */
 .pageContent > div{
-    width: 70vw;
+    width: 80vw;
     margin: auto;
     margin-top: 10vh;
     background: #000;
@@ -19,8 +19,8 @@
 }
 .pageContent > div > h1{
     margin-bottom: 4vh;
-    font-size: 7vh;
+    font-size: 2rem;
 }
 .pageContent > div > p{
-    font-size: 3vh;
+    font-size: 1.2rem;
 }

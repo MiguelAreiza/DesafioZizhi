@@ -109,15 +109,15 @@ $(document).ready(()=>{
         });
 
         $('#insCalidad').click(() => {
-            toastr.Info('Crea trabajos de calidad para conseguir una estas', 'Insignia de la calidad');
+            toastr.Info('Crea trabajos de calidad para conseguir una de éstas', 'Insignia de la calidad');
         });
 
         $('#insTiempo').click(() => {
-            toastr.Info('Utiliza correctamente el tiempo para conseguir una estas', 'Insignia del tiempo');
+            toastr.Info('Utiliza correctamente el tiempo para conseguir una de éstas', 'Insignia del tiempo');
         });
 
         $('#insEquipo').click(() => {
-            toastr.Info('Trabaja en armonia con tu equipo para conseguir una estas', 'Insignia del trabajo en equipo');
+            toastr.Info('Trabaja en armonia con tu equipo para conseguir una de éstas', 'Insignia del trabajo en equipo');
         });
         
         ExecSp(`sp_InsignsByTeam '${getUser.TeamId}'`).then((data) => {

@@ -89,6 +89,15 @@ form > input::placeholder{
     border-top: none;
     transition: .6s;
 }
+.cardLogin > form > a{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    text-decoration: underline;
+    margin-top: 2vh;
+    cursor: pointer;
+}
 .cardLogin > form > .btnForm:hover{
     transform: scale(1.1);
 }

@@ -10,6 +10,10 @@ $(document).ready(()=>{
         goLocation.ChangeView('./');
     });
 
+    $('#textCreate').click(() => {
+        $('#btnNewUser').click();
+    })
+
     $('#btnNewUser').click(()=>{
         if ($('#formCreate').css('display') == 'none') {
             $('#formLogin').css('height', '0');

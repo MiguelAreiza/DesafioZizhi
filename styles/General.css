@@ -123,7 +123,7 @@
     background-size: 24px;
     box-shadow: 0 0 12px #000;
     color: #fff;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
     pointer-events: auto;
     contain: content;
@@ -137,7 +137,7 @@
     display: block;
     font-size: 1.1rem;
     text-shadow: 1px 1px 1px #000;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .toast-info{
     background: #2aa3c3;

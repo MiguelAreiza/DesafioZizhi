@@ -40,58 +40,79 @@ $(document).ready(()=>{
     $('#btnAvatares').click(() => {
 
         $('#menu').css('height', '0');
-        $('.telon').show();
 
         if (getUser.RoleId == 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
-            if (confirm("¿Deseas editar los avatares?")) {
-                $('.modal').show();
-                $('#sectionAvatares').show();
-                GridAvatars();
-                setTimeout(() => {
-                    $('.modal').css('opacity','1');
-                }, 100);
-                $('#sectionAvatares #btnClose').click(() => {
-                    $('.modal').css('opacity','0');
+            const SWALCONFIRM = Swal.mixin(
+            {
+                buttonsStyling: true
+            }).fire(
+            {
+                title: '¿Deseas editar los avatares?',
+                text: "Presiona confirmar para editar los avatares",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Visualizar',
+                reverseButtons: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {            
+                    $('.telon').show();
+                    $('.modal').show();
+                    $('#sectionAvatares').show();
+                    GridAvatars();
                     setTimeout(() => {
-                        $('.modal').hide();
-                        $('#sectionAvatares').hide();
-                        $('.telon').hide();
-                    }, 1000);
-                });
-                return
-            }
+                        $('.modal').css('opacity','1');
+                    }, 100);
+                    $('#sectionAvatares #btnClose').click(() => {
+                        $('.modal').css('opacity','0');
+                        setTimeout(() => {
+                            $('.modal').hide();
+                            $('#sectionAvatares').hide();
+                            $('.telon').hide();
+                        }, 1000);
+                    });
+                    return
+                }
+                StartAvatars();
+            });
+        } else {
+            StartAvatars();
         }
 
-        ExecSp(`sp_AvatarsByTeam '${getUser.TeamId}'`).then((data) => {
+        function StartAvatars() {            
+            $('.telon').show();
+            ExecSp(`sp_AvatarsByTeam '${getUser.TeamId}'`).then((data) => {
             
-            let html = ``;
-            for (let i = 0; i < data.length; i++) {
-                html += `<img id="${data[i].Id}" src="../../Images/Avatars/${data[i].StrImage}.png" alt="Personaje ${data[i],StrName}" draggable="false">`
-            }
-
-            $('#avatares').html(html);
-
-            for (let i = 0; i < data.length; i++) {
-                $(`#${data[i].Id}`).click(() => {    
+                let html = ``;
+                for (let i = 0; i < data.length; i++) {
+                    html += `<img id="${data[i].Id}" src="../../Images/Avatars/${data[i].StrImage}.png" alt="Personaje ${data[i],StrName}" draggable="false">`
+                }
+    
+                $('#avatares').html(html);
+    
+                for (let i = 0; i < data.length; i++) {
+                    $(`#${data[i].Id}`).click(() => {    
+                        $('.telon').hide();
+                        $('.personajes').hide();
+                        $('.pageContent > *').show();
+                        toastr.Success(`Ahora eres ${data[i].StrName}`,'Magnífica elección');    
+                    });
+                }
+    
+                $('.personajes').show();
+                $('.pageContent > *').hide();
+        
+                $('.personajes #btnAtras').click(() => {
                     $('.telon').hide();
                     $('.personajes').hide();
                     $('.pageContent > *').show();
-                    toastr.Success(`Ahora eres ${data[i].StrName}`,'Magnífica elección');    
                 });
-            }
-
-            $('.personajes').show();
-            $('.pageContent > *').hide();
     
-            $('.personajes #btnAtras').click(() => {
-                $('.telon').hide();
-                $('.personajes').hide();
-                $('.pageContent > *').show();
+            }).catch((error) => {
+                toastr.Error('Contacta tu administrador', 'Error');
             });
-
-        }).catch((error) => {
-            toastr.Error('Contacta tu administrador', 'Error');
-        });
+        }
         
     });
 
@@ -135,156 +156,194 @@ $(document).ready(()=>{
     $('#btnPoderes').click(() => {
 
         $('#menu').css('height', '0');
-        $('.telon').show();
 
         if (getUser.RoleId == 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
-            if (confirm("¿Deseas editar los poderes?")) {
-                $('.modal').show();
-                $('#sectionPoderes').show();
-                GridPowers();
-                setTimeout(() => {
-                    $('.modal').css('opacity','1');
-                }, 100);
-                $('#sectionPoderes #btnClose').click(() => {
-                    $('.modal').css('opacity','0');
+            const SWALCONFIRM = Swal.mixin(
+            {
+                buttonsStyling: true
+            }).fire(
+            {
+                title: '¿Deseas editar los poderes?',
+                text: "Presiona confirmar para editar los poderes",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Visualizar',
+                reverseButtons: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {            
+                    $('.telon').show();
+                    $('.modal').show();
+                    $('#sectionPoderes').show();
+                    GridPowers();
                     setTimeout(() => {
-                        $('.modal').hide();
-                        $('#sectionPoderes').hide();
-                        $('.telon').hide();
-                    }, 1000);
-                });
-                return
-            }
+                        $('.modal').css('opacity','1');
+                    }, 100);
+                    $('#sectionPoderes #btnClose').click(() => {
+                        $('.modal').css('opacity','0');
+                        setTimeout(() => {
+                            $('.modal').hide();
+                            $('#sectionPoderes').hide();
+                            $('.telon').hide();
+                        }, 1000);
+                    });
+                    return
+                }
+                StartPowers();
+            });
         }
 
-        ExecSp(`sp_PowersByTeam '${getUser.TeamId}'`).then((data) => {
+        function StartPowers() {
+            $('.telon').show();
+            ExecSp(`sp_PowersByTeam '${getUser.TeamId}'`).then((data) => {
             
-            let html = ``;
-
-            for (let i = 0; i < data.length; i++) {                
-                html += `<div class="poder" >
-                            <label class="titulo">${data[i].StrName}</label>
-                            <div id="${data[i].Id}">
-                                <img src="../../Images/Poderes/${data[i].StrImage}.png" alt="Poder de ${data[i].StrName.toLowerCase()}">
-                                <div class="detalles">
-                                    <label>Requisitos</label>
-                                    <p>
-                                        Para desbloquear necesitas: <br>
-                                        Insignias de calidad: <b>${data[i].IntQuality}</b> <br>
-                                        Insignias de tiempo: <b>${data[i].IntTime}</b> <br>
-                                        Insignias de equipo: <b>${data[i].IntTeam}</b> <br>
-                                        Puntos: <b>${data[i].IntPoints}</b>
-                                    </p> 
+                let html = ``;
+    
+                for (let i = 0; i < data.length; i++) {                
+                    html += `<div class="poder" >
+                                <label class="titulo">${data[i].StrName}</label>
+                                <div id="${data[i].Id}">
+                                    <img src="../../Images/Poderes/${data[i].StrImage}.png" alt="Poder de ${data[i].StrName.toLowerCase()}">
+                                    <div class="detalles">
+                                        <label>Requisitos</label>
+                                        <p>
+                                            Para desbloquear necesitas: <br>
+                                            Insignias de calidad: <b>${data[i].IntQuality}</b> <br>
+                                            Insignias de tiempo: <b>${data[i].IntTime}</b> <br>
+                                            Insignias de equipo: <b>${data[i].IntTeam}</b> <br>
+                                            Puntos: <b>${data[i].IntPoints}</b>
+                                        </p> 
+                                    </div>
                                 </div>
-                            </div>
-                        </div>`;                
-            }
-
-            $('#poderes').html(html);
-
-            for (let i = 0; i < data.length; i++) {
-                $(`#${data[i].Id} .detalles`).click(() => {
-                    if ($(`#${data[i].Id} .detalles`).hasClass('abierto')) {
-                        $(`#${data[i].Id} .detalles`).css({'height':'calc(1.2rem + 3vh)','margin':'-1vh auto 0'});
-                        $(`#${data[i].Id} .detalles`).removeClass('abierto');
-                    } else {
-                        $(`#${data[i].Id} .detalles`).css({'height':'calc(7vh + 6.2rem)','margin-top':'calc(-4vh - 5rem)'});
-                        $(`#${data[i].Id} .detalles`).addClass('abierto');
-                    }
+                            </div>`;                
+                }
+    
+                $('#poderes').html(html);
+    
+                for (let i = 0; i < data.length; i++) {
+                    $(`#${data[i].Id} .detalles`).click(() => {
+                        if ($(`#${data[i].Id} .detalles`).hasClass('abierto')) {
+                            $(`#${data[i].Id} .detalles`).css({'height':'calc(1.2rem + 3vh)','margin':'-1vh auto 0'});
+                            $(`#${data[i].Id} .detalles`).removeClass('abierto');
+                        } else {
+                            $(`#${data[i].Id} .detalles`).css({'height':'calc(7vh + 6.2rem)','margin-top':'calc(-4vh - 5rem)'});
+                            $(`#${data[i].Id} .detalles`).addClass('abierto');
+                        }
+                    });
+                }
+    
+                $('.poderes').show();
+                $('.pageContent > *').hide();
+                
+                $('.poderes #btnAtras').click(() => {
+                    $('.telon').hide();
+                    $('.poderes').hide();
+                    $('.pageContent > *').show();
                 });
-            }
-
-            $('.poderes').show();
-            $('.pageContent > *').hide();
-            
-            $('.poderes #btnAtras').click(() => {
-                $('.telon').hide();
-                $('.poderes').hide();
-                $('.pageContent > *').show();
+    
+            }).catch((error) => {
+                toastr.Error('Contacta tu administrador', 'Error');
             });
-
-        }).catch((error) => {
-            toastr.Error('Contacta tu administrador', 'Error');
-        });
+        }
         
     });
 
     $('#btnTienda').click(() => {
 
         $('#menu').css('height', '0');
-        $('.telon').show();
 
         if (getUser.RoleId == 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
-            if (confirm("¿Deseas editar los productos?")) {
-                $('.modal').show();
-                $('#sectionProducts').show();
-                GridProducts();
-                setTimeout(() => {
-                    $('.modal').css('opacity','1');
-                }, 100);
-                $('#sectionProducts #btnClose').click(() => {
-                    $('.modal').css('opacity','0');
+            const SWALCONFIRM = Swal.mixin(
+            {
+                buttonsStyling: true
+            }).fire(
+            {
+                title: '¿Deseas editar los productos?',
+                text: "Presiona confirmar para editar los productos",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Visualizar',
+                reverseButtons: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {            
+                    $('.telon').show();
+                    $('.modal').show();
+                    $('#sectionProducts').show();
+                    GridProducts();
                     setTimeout(() => {
-                        $('.modal').hide();
-                        $('#sectionProducts').hide();
-                        $('.telon').hide();
-                    }, 1000);
-                });
-                return
-            }
+                        $('.modal').css('opacity','1');
+                    }, 100);
+                    $('#sectionProducts #btnClose').click(() => {
+                        $('.modal').css('opacity','0');
+                        setTimeout(() => {
+                            $('.modal').hide();
+                            $('#sectionProducts').hide();
+                            $('.telon').hide();
+                        }, 1000);
+                    });
+                    return
+                }
+                StartProducts();
+            });
         }
 
-        ExecSp(`sp_ProductsByTeam '${getUser.TeamId}'`).then((data) => {
-            
-            let html = ``;
-
-            for (let i = 0; i < data.length; i++) {
-
-                html += `<div class="producto" >
-                            <label class="titulo">${data[i].StrName}</label>
-                            <div id="${data[i].Id}">
-                                <img src="../../Images/Tienda/${data[i].StrImage}.png" alt="producto ${data[i].StrName.toLowerCase()}">
-                                <div class="detalles">
-                                    <label>Requisitos</label>
-                                    <p>
-                                        Para reclamar necesitas: <br>
-                                        Insignias de calidad: <b>${data[i].IntQuality}</b> <br>
-                                        Insignias de equipo: <b>${data[i].IntTime}</b> <br>
-                                        Insignias de tiempo: <b>${data[i].IntTeam}</b> <br>
-                                        Puntos: <b>${data[i].IntPoints}</b>
-                                    </p> 
-                                </div>
-                            </div>
-                        </div>`;                
-            }
-
-            $('#tienda').html(html);
-
-            for (let i = 0; i < data.length; i++) {
-                $(`#${data[i].Id} .detalles`).click((e) => {
-                    if ($(`#${data[i].Id} .detalles`).hasClass('abierto')) {
-                        $(`#${data[i].Id} .detalles`).css({'height':'calc(1.2rem + 3vh)','margin':'-1vh auto 0'});
-                        $(`#${data[i].Id} .detalles`).removeClass('abierto');
-                    } else {    
-                        $(`#${data[i].Id} .detalles`).css({'height':'calc(7vh + 6.2rem)','margin-top':'calc(-4vh - 5rem)'});
-                        $(`#${data[i].Id} .detalles`).addClass('abierto');
-                    }    
-                });    
-            }
-
+        function StartProducts() {
             $('.telon').show();
-            $('.tienda').show();
-            $('.pageContent > *').hide();
-            
-            $('.tienda #btnAtras').click(() => {
-                $('.telon').hide();
-                $('.tienda').hide();
-                $('.pageContent > *').show();
-            });
+            ExecSp(`sp_ProductsByTeam '${getUser.TeamId}'`).then((data) => {
+                
+                let html = ``;
 
-        }).catch((error) => {
-            toastr.Error('Contacta tu administrador', 'Error');
-        });
+                for (let i = 0; i < data.length; i++) {
+
+                    html += `<div class="producto" >
+                                <label class="titulo">${data[i].StrName}</label>
+                                <div id="${data[i].Id}">
+                                    <img src="../../Images/Tienda/${data[i].StrImage}.png" alt="producto ${data[i].StrName.toLowerCase()}">
+                                    <div class="detalles">
+                                        <label>Requisitos</label>
+                                        <p>
+                                            Para reclamar necesitas: <br>
+                                            Insignias de calidad: <b>${data[i].IntQuality}</b> <br>
+                                            Insignias de equipo: <b>${data[i].IntTime}</b> <br>
+                                            Insignias de tiempo: <b>${data[i].IntTeam}</b> <br>
+                                            Puntos: <b>${data[i].IntPoints}</b>
+                                        </p> 
+                                    </div>
+                                </div>
+                            </div>`;                
+                }
+
+                $('#tienda').html(html);
+
+                for (let i = 0; i < data.length; i++) {
+                    $(`#${data[i].Id} .detalles`).click((e) => {
+                        if ($(`#${data[i].Id} .detalles`).hasClass('abierto')) {
+                            $(`#${data[i].Id} .detalles`).css({'height':'calc(1.2rem + 3vh)','margin':'-1vh auto 0'});
+                            $(`#${data[i].Id} .detalles`).removeClass('abierto');
+                        } else {    
+                            $(`#${data[i].Id} .detalles`).css({'height':'calc(7vh + 6.2rem)','margin-top':'calc(-4vh - 5rem)'});
+                            $(`#${data[i].Id} .detalles`).addClass('abierto');
+                        }    
+                    });    
+                }
+
+                $('.telon').show();
+                $('.tienda').show();
+                $('.pageContent > *').hide();
+                
+                $('.tienda #btnAtras').click(() => {
+                    $('.telon').hide();
+                    $('.tienda').hide();
+                    $('.pageContent > *').show();
+                });
+
+            }).catch((error) => {
+                toastr.Error('Contacta tu administrador', 'Error');
+            });
+        }
         
     });
 

@@ -65,6 +65,10 @@
 .navBar > .rigth > #menu > #btnTeams:hover{
     background-image: url('../Images/IconosMenu/Teams.png');
 }
+.navBar > .rigth > #menu > #btnActive,
+.navBar > .rigth > #menu > #btnActive:hover{
+    background-image: url('../Images/IconosMenu/Activar.png');
+}
 
 /* Estilos del pagecontent */
 .pageContent{
@@ -114,7 +118,12 @@
 #btnMisiones{
     background-image: url('../Images/Fondos/FondoMision.png');
 }
-
+#btnMonitoreo{
+    background-image: url('../Images/Fondos/FondoMonitoreo.png');
+}
+#btnEvaluacion{
+    background-image: url('../Images/Fondos/FondoEvaluacion.png');
+}
 
 /* Estilos de modales */
 .modal{

@@ -29,8 +29,9 @@ $(document).ready(()=>{
         if ($('#menu').css('height') == '0px') {
             $('#menu').css('height', '48vh');
             if (getUser.RoleId == 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
-                $('#menu').css('height', '60vh');
+                $('#menu').css('height', '72vh');
                 $('#btnTeams').show();
+                $('#btnActive').show();
             }
         }  else {
             $('#menu').css('height', '0px');
@@ -371,6 +372,36 @@ $(document).ready(()=>{
         }        
     });
 
+    $('#btnActive').click(() => {
+        if (getUser.RoleId == 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
+            
+            $('#menu').css('height', '0');
+
+            const SWALCONFIRM = Swal.mixin(
+            {
+                buttonsStyling: true
+            }).fire(
+            {
+                title: '¿Deseas activar los monitoreos?',
+                text: "Presiona confirmar para activar",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Confirmar',
+                cancelButtonText: 'Cancelar',
+                reverseButtons: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {  
+                    ExecSp(`sp_ActiveBlMonitoreo`).then((data) => {
+                        toastr.Success('Monitoreo activado con exito');    
+                    }).catch((error) => {
+                        toastr.Error('Contacta tu administrador', 'Error');
+                    });
+                }
+            });
+        }        
+    });
+
     $('#btnEquipo').click(() => {
         history.pushState(null, "", "../portal/equipo/");        
         goLocation.ChangeView('./');
@@ -378,6 +409,16 @@ $(document).ready(()=>{
     
     $('#btnLista').click(() => {
         history.pushState(null, "", "../portal/lista/");        
+        goLocation.ChangeView('./');
+    });
+
+    $('#btnMonitoreo').click(() => {
+        history.pushState(null, "", "../portal/monitoreo/");        
+        goLocation.ChangeView('./');
+    });
+
+    $('#btnEvaluacion').click(() => {
+        history.pushState(null, "", "../portal/evaluacion/");        
         goLocation.ChangeView('./');
     });
 

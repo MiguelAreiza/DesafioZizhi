@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio Zizhi</title>
+    <link rel="shortcut icon" href="https://miguelareiza.github.io/DesafioZizhi/Images/favicon.ico" type="image/x-icon">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.js" integrity="sha512-CX7sDOp7UTAq+i1FYIlf9Uo27x4os+kGeoT7rgwvY+4dmjqV0IuE/Bl5hVsjnQPQiTOhAX1O2r2j5bjsFBvv/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="base">
+        <div class="navBar">
+            <div class="left">
+                <button type="button" id="btnAtras"></button>
+            </div>
+            <div class="center">
+                <label id="nameUser"></label>
+            </div>
+            <div class="rigth">
+                
+            </div>
+        </div>
+        <div class="pageContent">
+            <form class="formMonitoreo" id="formMonitoreo">
+                <label class="titleForm">MONITOREO DE TUS ACTIVIDADES</label>
+                <div class="inputField">
+                    <label class="titleField">Escucho atentamente a mis profesores y compañeros</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider1" name="check" />
+                        <label for="slider1"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Como en el taller</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider2" name="check" />
+                        <label for="slider2"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Me paro constantemente del puesto</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider3" name="check" />
+                        <label for="slider3"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Cuento con todos los materiales de trabajo</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider4" name="check" />
+                        <label for="slider4"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Uso el celular en redes sociales o juegos sin autorización</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider5" name="check" />
+                        <label for="slider5"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Participo con entusiasmo de las actividades</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider6" name="check" />
+                        <label for="slider6"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Incomodo a mis compañeros</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider7" name="check" />
+                        <label for="slider7"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Utilizo correctamente el tiempo para cada actividad</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider8" name="check" />
+                        <label for="slider8"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Respeto a mis compañeros</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider9" name="check" />
+                        <label for="slider9"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Soluciono pacíficamente los problemas</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider10" name="check" />
+                        <label for="slider10"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Interrumpo frecuentemente las actividades</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider11" name="check" />
+                        <label for="slider11"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Me salgo del taller sin autorización</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider12" name="check" />
+                        <label for="slider12"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Realizo mis trabajos con calidad</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider13" name="check" />
+                        <label for="slider13"></label>
+                    </div>
+                </div>
+                <div class="inputField">
+                    <label class="titleField">Trabajo en armonía con mi equipo de trabajo</label>
+                    <div class="slideThree">  
+                        <input type="checkbox" value="None" id="slider14" name="check" />
+                        <label for="slider14"></label>
+                    </div>
+                </div>
+                <button class="btnForm" type="submit">Enviar Respuestas</button>
+            </form>
+        </div>
+        <div class="footer">
+            <div class="contactUs">
+                <div class="networks">
+                    <label>Contacto</label>
+                    <button type="button" class="facebook"></button>
+                    <button type="button" class="instagram"></button>
+                    <button type="button" class="whatsApp"></button>
+                </div>
+            </div>
+            <div class="copyRight">
+                &reg;Miguel Areiza 2022 all rights reserved
+            </div>
+            <div class="handcrafted">
+                Handcrafted with love ❤️
+            </div>
+        </div>
+    </div>
+    <div id="notifications">
+
+    </div>
+    <!-- Generales -->
+    <script src="../../../scripts/General.js"></script>
+    <link rel="stylesheet" href="../../../styles/General.css">
+    
+    <!-- Propios -->
+    <script src="../../../scripts/monitoreo.js"></script>
+    <link rel="stylesheet" href="../../../styles/monitoreo.css">
+</body>
+</html>

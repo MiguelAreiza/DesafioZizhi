@@ -7,6 +7,9 @@ if (sessionStorage.AppUser) {
         }
         sessionStorage.setItem('AppUser', JSON.stringify(data[0]));
         $('#nameUser').html(data[0].StrName);
+        if (data[0].StrImage != null) {
+            $('#btnSettings').css('background-image', `url('../../Images/Avatars/${data[0].StrImage}.png')`);
+        }
         toastr.Success(`Permítete brillar como una estrella`);
     }).catch((error) => {
         history.pushState(null, "", "../login/");
@@ -87,17 +90,25 @@ $(document).ready(()=>{
             
                 let html = ``;
                 for (let i = 0; i < data.length; i++) {
-                    html += `<img id="${data[i].Id}" src="../../Images/Avatars/${data[i].StrImage}.png" alt="Personaje ${data[i],StrName}" draggable="false">`
+                    html += `<img id="${data[i].Id}" src="../../Images/Avatars/${data[i].StrImage}.png" alt="Personaje ${data[i].StrName}" draggable="false">`
                 }
     
                 $('#avatares').html(html);
     
                 for (let i = 0; i < data.length; i++) {
-                    $(`#${data[i].Id}`).click(() => {    
-                        $('.telon').hide();
-                        $('.personajes').hide();
-                        $('.pageContent > *').show();
-                        toastr.Success(`Ahora eres ${data[i].StrName}`,'Magnífica elección');    
+                    $(`#${data[i].Id}`).click(() => {
+
+                        ExecSp(`sp_ChangeAvatar '${getUser.Id}', '${data[i].StrImage}'`).then(() => {            
+                            
+                            $('.telon').hide();
+                            $('.personajes').hide();
+                            $('.pageContent > *').show();
+                            $('#btnSettings').css('background-image', `url('../../Images/Avatars/${data[i].StrImage}.png')`);
+                            toastr.Success(`Ahora eres ${data[i].StrName}`,'Magnífica elección'); 
+                
+                        }).catch((error) => {
+                            toastr.Error('Contacta tu administrador', 'Error');
+                        });   
                     });
                 }
     

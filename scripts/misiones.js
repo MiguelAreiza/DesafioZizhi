@@ -51,6 +51,31 @@ $(document).ready(function() {
         history.pushState(null, "", "../");
         goLocation.ChangeView('./');
     });
+
+    $('#btnJungla').click( () => {
+        history.pushState(null, "", "./jungla/");
+        goLocation.ChangeView('./');
+    });
+
+    $('#btnEspacio').click( () => {
+        history.pushState(null, "", "./espacio/");
+        goLocation.ChangeView('./');
+    });
+
+    $('#btnRompecabezas').click( () => {
+        history.pushState(null, "", "./rompecabezas/");
+        goLocation.ChangeView('./');
+    });
+
+    $('#btnKahoot').click( () => {
+        history.pushState(null, "", "./kahoot/");
+        goLocation.ChangeView('./');
+    });
+
+    $('#btnSopaLetras').click( () => {
+        history.pushState(null, "", "./sopaLetras/");
+        goLocation.ChangeView('./');
+    });
     
     $('.facebook').click(()=>{
         redirect.Facebook();

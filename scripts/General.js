@@ -128,6 +128,8 @@ function GetUser() {
 
     this.TeamId = (sessionStorage.AppUser) ? JSON.parse(sessionStorage.AppUser).TeamFk : '';
 
+    this.StrImg = (sessionStorage.AppUser) ? (JSON.parse(sessionStorage.AppUser).StrImage != null ? JSON.parse(sessionStorage.AppUser).StrImage : 'setting.png') : '';
+
 }
 
 var redirect = new Redirect();

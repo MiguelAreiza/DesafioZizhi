@@ -1,0 +1,21 @@
+/* Estilos del navbar */
+.navBar > .left > #btnAtras{
+    background-image: url('../Images/Botones/Atras.png');
+}
+.navBar > .center > #nameUser{
+    color: #fff;
+    font-family: 'Merienda One', cursive;
+    font-size: 1.5rem;
+}
+
+/* Estilos del pagecontent */
+.pageContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+iframe{
+    width: 98%;
+    height: 84vh;
+}

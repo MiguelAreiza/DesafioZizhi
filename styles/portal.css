@@ -8,7 +8,11 @@
     font-size: 1.5rem;
 }
 .navBar > .rigth > #btnSettings{
-    background-image: url('../Images/Botones/Setting.png');
+    width: 10vh;
+    height: 10vh;
+    box-shadow: #666 0px 0px 3vh inset;
+    border-radius: 2vh;
+    background-image: url('../Images/Avatars/Setting.png');
 }
 .navBar > .rigth > .menu{
     background: #000;

@@ -1,0 +1,140 @@
+*{    
+    font-family: 'Merienda One', cursive;
+}
+
+/* Estilos del navbar */
+.navBar > .left > #btnAtras{
+    background-image: url('../Images/Botones/Atras.png');
+}
+.navBar > .center > #nameUser{
+    color: #fff;
+    font-family: 'Merienda One', cursive;
+    font-size: 1.5rem;
+}
+
+/* Estilos del pagecontent */
+.pageContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.rutinaForm{
+    width: 100%;
+    height: 500px;
+    max-width: 1000px;
+    background: #fff;
+    margin: 2vh 1vh;
+    border-radius: 5vh;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.imgForm{
+    width: 20%;
+    height: 100%;
+    background-image: url('../Images/Fondos/FondoSemaforo.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.inputsForm{
+    margin-left: auto;
+    width: 80%
+}
+.inputsForm > input{
+    display: block;
+    width: calc(100% - 5vh);
+    height: 100px;
+    margin: 3vh 2vh;
+    border-radius: 3vh;
+    border: 3px solid;
+    text-align: center;
+    font-size: 1.2rem;
+    outline: none;
+}
+#Entiendo{
+    border-color: #f00;
+}
+#Repaso{
+    border-color: rgb(255, 174, 0);
+}
+#Enseño{
+
+    border-color: #0f0;
+}
+#rutina2{
+    flex-wrap: wrap;
+}
+#rutina2 > input{
+    display: block;
+    width: 95%;
+    height: 35%;
+    margin-top: 2vh;
+    border-radius: 3vh;
+    border: 3px solid #00aeff;
+    text-align: center;
+    font-size: 1.2rem;
+    outline: none;
+}
+#Pensaba, #Pienso{
+    background-size: 70px;
+    background-repeat: no-repeat;
+    background-position: top 10px right 10px;
+}
+#Pensaba{
+    background-image: url('../Images/Fondos/Pensaba.png');
+}
+#Pienso{
+    background-image: url('../Images/Fondos/Pienso.png');
+}
+#rutina3{
+    flex-wrap: wrap;
+}
+#rutina3 > input{
+    display: block;
+    width: 95%;
+    height: 20%;
+    margin-top: 2vh;
+    border-radius: 3vh;
+    border: 3px solid #00ff2a;
+    text-align: center;
+    font-size: 1.2rem;
+    outline: none;
+}
+#rutina4{
+    flex-wrap: wrap;
+    background-image: url('../Images/Fondos/Preguntas.jpeg');
+    background-size: 100% 100%;
+}
+#rutina4 > input{
+    display: block;
+    width: 95%;
+    height: 20%;
+    margin-top: 2vh;
+    border-radius: 3vh;
+    border: 3px solid #0099ff;
+    text-align: center;
+    font-size: 1.2rem;
+    outline: none;
+}
+.btnForm{
+    background: #0009;
+    display: block;
+    width: 95%;
+    margin: 2vh auto 1vh;
+    color: #fff;
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 1vh;
+    border-radius: 5vh;
+    border: 2px solid #56ccef;
+    box-shadow: 0 3px 5px #ec34e0;
+    border-top: none;
+    transition: .6s;
+}
+.btnForm:hover{
+    background: #000;
+}
+

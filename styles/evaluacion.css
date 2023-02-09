@@ -119,6 +119,9 @@
     font-size: 1.2rem;
     outline: none;
 }
+#rutina4 > .btnForm{    
+    margin: auto auto 2vh;
+}
 .btnForm{
     background: #0009;
     display: block;

@@ -128,9 +128,11 @@ $(document).ready(function() {
                     }
 
                     if (data.length < 4) {
-                        $('.usersTeam').hide();
-                        $('.readings').hide();
-                        $('.rolesTeam').hide();
+                        if (getUser.RoleId != 'e922ab89-6aa3-4835-ba6a-ce189f0eb74a') {
+                            $('.usersTeam').hide();
+                            $('.readings').hide();
+                            $('.rolesTeam').hide();
+                        }
                         $('.videoTeam').attr('src', 'https://www.youtube.com/embed/1v6JZqNSF0o?controls=0&autoplay=1');
                         setTimeout(() => {
                             $('.usersTeam').show();

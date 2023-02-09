@@ -10,7 +10,7 @@ function Redirect() {
     }
 
     this.WhatsApp = () => {
-        window.open('https://api.whatsapp.com/send?phone=573245026814&text=');        
+        window.open('https://api.whatsapp.com/send?phone=573147207849&text=');        
     }
     
 }

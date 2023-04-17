@@ -84,8 +84,15 @@ $(document).ready(()=>{
             StartAvatars();
         }
 
-        function StartAvatars() {            
+        function StartAvatars() {   
+            
+            if (!getUser.TeamId) {
+                toastr.Warning('Debes tener un equipo para que iniciemos una aventura juntos');
+                return;
+            }
+            
             $('.telon').show();
+            
             ExecSp(`sp_AvatarsByTeam '${getUser.TeamId}'`).then((data) => {
             
                 let html = ``;
@@ -129,6 +136,8 @@ $(document).ready(()=>{
     });
 
     $('#btnInsignias').click(() => {
+
+
                 
         $('#menu').css('height', '0');
         $('.telon').show();
@@ -152,17 +161,23 @@ $(document).ready(()=>{
         $('#insEquipo').click(() => {
             toastr.Info('Trabaja en armonia con tu equipo para conseguir una de éstas', 'Insignia del trabajo en equipo');
         });
-        
-        ExecSp(`sp_InsignsByTeam '${getUser.TeamId}'`).then((data) => {
-            
-            $('#intInsQuality').html(data[0].IntQuality);
-            $('#intInsTime').html(data[0].IntTime);
-            $('#intInsTeam').html(data[0].IntTeam);
 
-        }).catch((error) => {
-            toastr.Error('Contacta tu administrador', 'Error');
-        });
         
+
+        if (getUser.TeamId) {
+
+            ExecSp(`sp_InsignsByTeam '${getUser.TeamId}'`).then((data) => {
+                
+                $('#intInsQuality').html(data[0].IntQuality);
+                $('#intInsTime').html(data[0].IntTime);
+                $('#intInsTeam').html(data[0].IntTeam);
+    
+            }).catch((error) => {
+                toastr.Error('Contacta tu administrador', 'Error');
+            });
+            
+        }
+                
     });
 
     $('#btnPoderes').click(() => {
@@ -204,10 +219,19 @@ $(document).ready(()=>{
                 }
                 StartPowers();
             });
+        } else {            
+            StartPowers();
         }
 
         function StartPowers() {
+
+            if (!getUser.TeamId) {
+                toastr.Warning('Debes tener un equipo para que iniciemos una aventura juntos');
+                return;
+            }
+
             $('.telon').show();
+
             ExecSp(`sp_PowersByTeam '${getUser.TeamId}'`).then((data) => {
             
                 let html = ``;
@@ -300,10 +324,19 @@ $(document).ready(()=>{
                 }
                 StartProducts();
             });
+        } else {
+            StartProducts();
         }
 
         function StartProducts() {
+
+            if (!getUser.TeamId) {
+                toastr.Warning('Debes tener un equipo para que iniciemos una aventura juntos');
+                return;
+            }
+
             $('.telon').show();
+
             ExecSp(`sp_ProductsByTeam '${getUser.TeamId}'`).then((data) => {
                 
                 let html = ``;
